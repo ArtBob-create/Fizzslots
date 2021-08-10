@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Fizzslots</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="logo">
+          <a href="#" class="logo__link">
+            <img src="img/лого.png" alt="logo" />
+          </a>
+        </div>
+        <div class="content">
+          <a href="#" class="content__bonus"></a>
+        </div>
+        <div class="buttom">
+          <div class="button" id="exemple">
+            <img class="button__img" src="img/кнопка.png" alt="button" />
+            <img
+              class="button__img-active"
+              src="img/кнопка1.png"
+              alt="button"
+            />
+            <img
+              class="button__img-visited"
+              src="img/кнопка2.png"
+              alt="button"
+            />
+            <span class="link" id="exemple1"></span>
+            <a href="#" id="link"><span></span></a>
+          </div>
+
+          <div class="payment">
+            <div class="payment__top">
+              <div class="payment__item">
+                <img src="img/Visa.png" alt="viza" />
+              </div>
+              <div class="payment__item">
+                <img src="img/Mastercard.png" alt="Mastercard" />
+              </div>
+              <div class="payment__item">
+                <img src="img/Advcash.png" alt="Advcash" />
+              </div>
+              <div class="payment__item">
+                <img src="img/bitcoin.png" alt="bitcoin" />
+              </div>
+            </div>
+            <div class="payment__bottom">
+              <div class="payment__item">
+                <img src="img/tether.png" alt="tether" />
+              </div>
+              <div class="payment__item">
+                <img src="img/Ethereum.png" alt="Ethereum" />
+              </div>
+              <div class="payment__item">
+                <img src="img/Litecoin.png" alt="Litecoin" />
+              </div>
+            </div>
+          </div>
+          <div class="copyright">
+            <img
+              src="img/© 2021 Fizzslots. All rights reserved.svg"
+              alt="copyright"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      //дожидаемся полной загрузки страницы
+      window.onload = function () {
+        //ищем элемент по селектору
+        var a = document.getElementById('link');
+        //вешаем на него события
+        a.onmouseout = function (e) {
+          document.getElementById('exemple1').classList.remove('stop');
+        };
+
+        a.onmouseover = function (e) {
+          document.getElementById('exemple1').classList.add('stop');
+        };
+
+        a.onclick = function (e) {
+          document.getElementById('link').classList.add('visited');
+          document.getElementById('exemple1').classList.add('visited__link');
+          document.getElementById('exemple').classList.add('visited__btn');
+        };
+
+        a.onmousedown = function (e) {
+          document.getElementById('exemple1').classList.add('active__link');
+          document.getElementById('exemple').classList.add('active__btn');
+          document.getElementById('link').classList.add('active');
+          if (
+            document
+              .getElementById('exemple1')
+              .classList.contains('visited__link') == true
+          ) {
+            document
+              .getElementById('exemple1')
+              .classList.remove('visited__link');
+          }
+          if (
+            document
+              .getElementById('exemple')
+              .classList.contains('visited__btn') == true
+          ) {
+            document.getElementById('exemple').classList.remove('visited__btn');
+          }
+        };
+
+        a.onmouseup = function (e) {
+          document.getElementById('exemple1').classList.remove('active__link');
+          document.getElementById('exemple').classList.remove('active__btn');
+        };
+      };
+    </script>
+  </body>
+</html>
